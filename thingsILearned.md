@@ -1,4 +1,11 @@
 6/20/2017
+Fun fact: superman 3 has tiny floating point as a plot point, also the error
+in the space program (legacy code example) was due to a conversion that
+was not valid.
+You can expand a float point number to infinite digits, it shows how it is a
+fractional approximation in c.  EX: %.59f
+remember %% to escape % in printf
+long long - 64 bit integer - %lld
 get_* library is from cs50 course scripts
 make (name of program) will do a default build command, without specific settings
 it is cc x.cc -o x
