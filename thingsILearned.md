@@ -1,4 +1,9 @@
-
+6/20/2017
+get_* library is from cs50 course scripts
+make (name of program) will do a default build command, without specific settings
+it is cc x.cc -o x
+clang hello.c - c9 workspace also specific make command
+a.out stands for assembly out
 6/19/2017
 You can use const in ES6 javascript to enforce constants
 >>> and >> are different, >> ignores sign, >>> does not.
