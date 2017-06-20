@@ -1,6 +1,6 @@
 
 6/19/2017
-Number makes integers
+You can use const in ES6 javascript to enforce constants
 >>> and >> are different, >> ignores sign, >>> does not.
 remember ===/== and !==/!= are different because of whether they are strict or looser.
 learn how to use it
