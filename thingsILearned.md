@@ -1,3 +1,13 @@
+
+6/19/2017
+Number makes integers
+>>> and >> are different, >> ignores sign, >>> does not.
+remember ===/== and !==/!= are different because of whether they are strict or looser.
+learn how to use it
+**= works in javascript.  So do |= ^= &= <<= >>=.
+scratch list actually works similar to a linked list.
+earlier c standard doesn't allow int in for loop, for (int i = 0;;) is illegal.
+6/18/2017
 Prompt is the input() of javascript;
 console.log doesn't work on safari console. The undefined from console.log is because it evals to undefined.
 Shift-enter allows multiple lines on the javascript console.
