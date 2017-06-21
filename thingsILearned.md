@@ -1,4 +1,8 @@
 6/20/2017
+I did refactoring for the credit.c too fast.  Too many errors.
+You can print part of a string with %.1s for example like with floats
+C program pre-processor directives get resolved first! Then to assembly. Then 
+make binaries and link them together.
 Fun fact: superman 3 has tiny floating point as a plot point, also the error
 in the space program (legacy code example) was due to a conversion that
 was not valid.
@@ -21,7 +25,7 @@ scratch list actually works similar to a linked list.
 earlier c standard doesn't allow int in for loop, for (int i = 0;;) is illegal.
 6/18/2017
 Prompt is the input() of javascript;
-console.log doesn't work on safari console. The undefined from console.log is because it evals to undefined.
+The undefined from console.log is because it evals to undefined.
 Shift-enter allows multiple lines on the javascript console.
 The browser actually compiles javascript.  Javascript is not interpreted. 
 Another word for constant is literal value.
