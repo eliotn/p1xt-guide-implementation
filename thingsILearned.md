@@ -4,6 +4,13 @@ the sort algorithms before the interview.
 Talk about tradeoffs when facing a hard programming problem.
 Watching interview video - Knowing Big O notation will be key for the interview.
 Trie is a prefix tree
+------
+javascript notes:
+use isNaN for comparisons with NaN in js
+toFixed returns string.
+Be careful when doing <= on different types.  Not sure how they can be compared
+but '$648.00' <= 1000.00 returns False.
+== doesn't seem to coerce floats into ints - both orders 39.01 == 39 are false
 
 6/20/2017
 I did refactoring for the credit.c too fast.  Too many errors.
