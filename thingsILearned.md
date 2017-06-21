@@ -1,10 +1,10 @@
-6/21/2017
+### 6/21/2017
 New idea for homework, do every interview data structure from scratch, and code all of 
 the sort algorithms before the interview.
 Talk about tradeoffs when facing a hard programming problem.
 Watching interview video - Knowing Big O notation will be key for the interview.
 Trie is a prefix tree
-------
+
 javascript notes:
 use isNaN for comparisons with NaN in js
 toFixed returns string.
@@ -12,7 +12,7 @@ Be careful when doing <= on different types.  Not sure how they can be compared
 but '$648.00' <= 1000.00 returns False.
 == doesn't seem to coerce floats into ints - both orders 39.01 == 39 are false
 
-6/20/2017
+### 6/20/2017
 I did refactoring for the credit.c too fast.  Too many errors.
 You can print part of a string with %.1s for example like with floats
 C program pre-processor directives get resolved first! Then to assembly. Then 
@@ -29,7 +29,8 @@ make (name of program) will do a default build command, without specific setting
 it is cc x.cc -o x
 clang hello.c - c9 workspace also specific make command
 a.out stands for assembly out
-6/19/2017
+
+### 6/19/2017
 You can use const in ES6 javascript to enforce constants
 >>> and >> are different, >> ignores sign, >>> does not.
 remember ===/== and !==/!= are different because of whether they are strict or looser.
@@ -37,7 +38,8 @@ learn how to use it
 **= works in javascript.  So do |= ^= &= <<= >>=.
 scratch list actually works similar to a linked list.
 earlier c standard doesn't allow int in for loop, for (int i = 0;;) is illegal.
-6/18/2017
+
+### 6/18/2017
 Prompt is the input() of javascript;
 The undefined from console.log is because it evals to undefined.
 Shift-enter allows multiple lines on the javascript console.
