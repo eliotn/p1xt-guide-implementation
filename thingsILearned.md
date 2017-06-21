@@ -1,3 +1,10 @@
+6/21/2017
+New idea for homework, do every interview data structure from scratch, and code all of 
+the sort algorithms before the interview.
+Talk about tradeoffs when facing a hard programming problem.
+Watching interview video - Knowing Big O notation will be key for the interview.
+Trie is a prefix tree
+
 6/20/2017
 I did refactoring for the credit.c too fast.  Too many errors.
 You can print part of a string with %.1s for example like with floats
