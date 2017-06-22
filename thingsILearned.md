@@ -1,9 +1,23 @@
+## 6/22/2017
+###### To check for bool conversion, look at (<value in here>)
+comparison for object in javascript
+ctrl-l clears terminal window because it executes clear
+some logical errors are because you forgot to negate one of the conditions
+ex: cs50 buggy3
+debug50 is a graphical gdb clone
+when you are stuck, TRY TO EXPLAIN YOUR CODE!
+###### Interesting fact, uppercase is 32 less than lowercase
+for clear documentation, document in a way that is clearer to follow
+in initials.c - saying uppercase values have lower values when it is the result is better, but there might be a better way to document
+
 ## 6/21/2017
 New idea for homework, do every interview data structure from scratch, and code all of 
 the sort algorithms before the interview.
 Talk about tradeoffs when facing a hard programming problem.
 Watching interview video - Knowing Big O notation will be key for the interview.
 Trie is a prefix tree
+###### For some reason ({} == false) and ({} == true) are both false, this apparently affects {} objects
+null is apparently an object type in js.
 
 ### javascript notes:
 use isNaN for comparisons with NaN in js
