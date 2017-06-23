@@ -78,3 +78,4 @@ Shift-enter allows multiple lines on the javascript console.
 The browser actually compiles javascript.  Javascript is not interpreted. 
 Another word for constant is literal value.
 If you don't understand why something works, learn!
+When summing 4 or more things the algorithm is always take two sums, then sum those things together etc.  Log(n) vs n.
