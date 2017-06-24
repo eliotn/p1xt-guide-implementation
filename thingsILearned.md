@@ -1,3 +1,10 @@
+## 6/24/2017
+
+## 6/23/2017
+I can use #define macros easily for isUpper or isLower but c also has functions for that.
+crypt is a function in C that uses a simple hashing algorithm that takes a salt from the set of 0-9A-Za-z/ to encrypt a password.
+
+
 ## 6/22/2017
 ###### To check for bool conversion, look at (<value in here>)
 comparison for object in javascript
