@@ -1,3 +1,6 @@
+## 6/25/2017
+Omega time stands for lower bound
+
 ## 6/24/2017
 argc stands for argument count
 argv stands for argument vector
