@@ -1,4 +1,10 @@
 ## 6/24/2017
+argc stands for argument count
+argv stands for argument vector
+Realized after doing the crypt assignment that the salt is always prepended to
+the hash.  This is so that the computer can easily allow someone with the right
+password without needing to guess the salt.  Brilliant.
+
 
 ## 6/23/2017
 I can use #define macros easily for isUpper or isLower but c also has functions for that.
