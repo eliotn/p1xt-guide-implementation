@@ -10,6 +10,8 @@ const port = process.env.PORT || 3000;
 
 const mongourl = 'mongodb://localhost:27017/twitchvotes';
 var MongoClient = require('mongodb').MongoClient;
+//users contains the following
+//access_token, userid
 var users;//get the collection
 MongoClient.connect(mongourl, function(err, database) {
     if (err) throw err;
@@ -23,12 +25,7 @@ const fs = require('fs');
 
 //test out twitch passport
 const passport = require("passport");
-//authenticate based on token
-/*passport.use(
-    new BearerStrategy(
-        function (token, done)
-    );    
-);*/
+
 const app = express();
 app.use(passport.initialize());
 app.use(passport.session());
@@ -52,7 +49,7 @@ fs.readFile("secret", "utf-8", function(err, str) {
             if (err) {
                 return done(err);
             }
-            if (results == null) {
+            if (!results) {
                 console.log("user needs to be created");
                 users.insert({"userid": profile.id, "access_token":accessToken}, function (err) {
                     if (err) return done(err);
@@ -68,18 +65,49 @@ fs.readFile("secret", "utf-8", function(err, str) {
         //put data we want access to in the callback here
         
     }));
+    afterPassport();
 });
 
-//session is set to false because we aren't using sessions
-//thanks https://jeroenpelgrims.com/token-based-sessionless-auth-using-express-and-passport
-app.get('/auth/twitch/', passport.authenticate("twitch", {session: false}));
-app.get('/auth/twitch/callback', passport.authenticate("twitch", {session:false, failureRedirect: '/'}), function (req, res) {
+//authenticate based on token
+var BearerStrategy = require("passport-http-bearer").Strategy;
+function afterPassport() {
+    passport.use(
+        new BearerStrategy(
+            function (token, done) {
+                if (!token) {
+                    console.log("token not found");
+                    return done(null, false, {message: 'no token'});
+                }
+                users.findOne({"access_token": token}, function(err, result) {
+                    if (err) {
+                        console.log("error in bearerstrategy" + err);
+                        return done(err);
+                    }
+                    if (!result) {
+                        console.log("incorrect token");
+                        return done(null, false, {message: 'incorrect token'});
+                    }
+                    console.log("correct token");
+                    return done(null, result, {scope:'all'});
+                });
+            }
+        )
+    );
+
+    //session is set to false because we aren't using sessions
+    //thanks https://jeroenpelgrims.com/token-based-sessionless-auth-using-express-and-passport
+    app.get('/auth/twitch/', passport.authenticate("twitch", {session: false}));
+    app.get('/auth/twitch/callback', passport.authenticate("twitch", {session:false, failureRedirect: '/'}), function (req, res) {
     
-   res.redirect('/?access_token=' + req.user.access_token);
-});
-app.get('/', function (req, res) {
-    res.send("Homepage");
-})
-app.listen(port, function() {
-    console.log("listening on port " + port);
-});
+       res.redirect('/?access_token=' + req.user.access_token);
+    });
+    app.get('/', function (req, res) {
+        res.send("Homepage");
+    });
+    app.get('/api/testlogin', passport.authenticate("bearer", {session: false}), function (req, res) {
+        res.json({"Note":"You should only see this if you are authenticated."});
+    });
+    app.listen(port, function() {
+        console.log("listening on port " + port);
+    });
+}

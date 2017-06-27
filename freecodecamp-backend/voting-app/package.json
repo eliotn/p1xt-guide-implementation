@@ -22,6 +22,8 @@
     "mongodb": "^2.2.29",
     "mongoose": "^4.11.0",
     "passport": "^0.3.2",
+    "passport-bearer-strategy": "^1.0.1",
+    "passport-http-bearer": "^1.0.1",
     "passport-twitch": "^1.0.3"
   }
 }
