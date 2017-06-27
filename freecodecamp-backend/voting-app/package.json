@@ -1,0 +1,27 @@
+{
+  "name": "voting-app",
+  "version": "0.0.1",
+  "description": "A voting application where people can share their votes",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliotn/p1xt-guide-implementation.git"
+  },
+  "author": "Eliot James Glairon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eliotn/p1xt-guide-implementation/issues"
+  },
+  "homepage": "https://github.com/eliotn/p1xt-guide-implementation#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mongodb": "^2.2.29",
+    "mongoose": "^4.11.0",
+    "passport": "^0.3.2",
+    "passport-twitch": "^1.0.3"
+  }
+}
