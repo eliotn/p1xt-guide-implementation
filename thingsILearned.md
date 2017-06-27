@@ -1,3 +1,20 @@
+## 6/27/2017
+Good managers will support prioritization and that projects are hard to scope.
+Bad managers will simply say get it done.
+Be sure to break the tasks down.
+Keep in perspective how important something is.
+Get an idea of how much time something is worth.
+Much easier to build the product when you are the user, part of this goes to
+domain knowledge you have of your product.
+Also its easier to build what you like.
+
+## 6/26/2017
+keep client secrets secret with file reads.
+Twitch has a neat little api for integration.
+Mergesort is O(nlog(n))
+I had problems implementing mongoose, was it the promises hook I used or
+something else?
+
 ## 6/25/2017
 Omega time stands for lower bound
 
