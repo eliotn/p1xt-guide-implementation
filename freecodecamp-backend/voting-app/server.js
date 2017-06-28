@@ -6,9 +6,7 @@ const express = require('express');
 const app = express();
 const server = "test-eliotn.c9users.io";
 const port = process.env.PORT || 3000;
-
-
-//mongoose.Promise = Promise;//mongoose's promise library is depricated
+const DROP_DATA = true;
 
 const mongourl = 'mongodb://localhost:27017/twitchvotes';
 var MongoClient = require('mongodb').MongoClient;
@@ -18,7 +16,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 //users contains the following
-//access_token, userid
+//access_token, userid, tokenUpdateTime
 //polls contains the following
 //userid, question, [{answer, votes}]
 var users;//get the collection
@@ -26,19 +24,19 @@ var polls;//get the polls
 MongoClient.connect(mongourl, function(err, database) {
     if (err) throw err;
     users = database.collection('users');
-    //users.drop();//temporary, drop between runs
     polls = database.collection('polls');
-    //polls.drop();
+    if (DROP_DATA) {
+        users.drop();
+        polls.drop();
+        //tokens have a lifetime of 15 seconds
+        users.createIndex({"tokenUpdateTime" : 1}, {"expireAfterSeconds" : 15});
+    }
 });
 
 const fs = require('fs');
-//err is true if there is an error connecting
 
-
-//test out twitch passport
+//use passport to connect with twitch and get an access key
 const passport = require("passport");
-
-
 app.use(passport.initialize());
 app.use(passport.session());
 var twitchStrategy = require("passport-twitch").Strategy;
@@ -63,14 +61,14 @@ fs.readFile("secret", "utf-8", function(err, str) {
             }
             if (!results) {
                 console.log("user needs to be created");
-                users.insert({"userid": profile.id, "access_token":accessToken}, function (err) {
+                users.insert({"userid": profile.id, "access_token":accessToken, "tokenUpdateTime":new Date()}, function (err) {
                     if (err) return done(err);
                     return done(null, {"access_token":accessToken});
                 });
             }
             else {
                 console.log("user already logged in!");
-                users.updateOne({"userid": profile.id}, {$set: {"access_token":accessToken}});
+                users.updateOne({"userid": profile.id}, {$set: {"access_token":accessToken, "tokenUpdateTime":new Date()}});
                 
                 return done(null, {"access_token":accessToken});
             }
@@ -144,7 +142,10 @@ function afterPassport() {
             res.json({"Note:": "vote counted"});
         });
     });
-    app.post('/api/poll',  passport.authenticate("bearer", {session: false}), function (req, res) {
+    /*app.get('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
+        
+    });*/
+    app.post('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
         console.log(req.body);
         if (req.body.question && req.body.answers) {
             polls.findOne({"userid": req.user.userid}, {}, function(err, results) {
