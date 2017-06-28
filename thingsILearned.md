@@ -1,3 +1,9 @@
+## 6/28/2017
+MongoDB is Very Particular about type of the object as well as the parameter.
+When inputting a custom string for an object parameter you have to create the
+object and use brackets, as the variable name will be interpreted as a string.
+My first instinct is to use print statements instead of a debugger.
+
 ## 6/27/2017
 Good managers will support prioritization and that projects are hard to scope.
 Bad managers will simply say get it done.
@@ -10,6 +16,9 @@ Also its easier to build what you like.
 Be careful, 'false' != false :P
 Also remember to define a function if you want to shorten a function call.
 You can use https://www.hurl.it/ to test queries without installing anything
+also www.runscope.com but I can only do a free trial
+Ctrl-D is the EOF character.
+make always tries to build the first target if run with no arguments
 
 ## 6/26/2017
 keep client secrets secret with file reads.
