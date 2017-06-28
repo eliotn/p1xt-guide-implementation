@@ -118,27 +118,36 @@ function afterPassport() {
     app.get('/', function (req, res) {
         res.send("Homepage");
     });
-    app.put('/api/poll/:pollid/:vote', function (req, res) {
+    app.put('/api/vote/:pollid/:vote', function (req, res) {
         console.log("Starting vote!");
-        polls.findOne({"userid": String(req.params.pollid)}, function(err, results) {
+        console.log(req.params.pollid);
+        console.log(req.params.vote);
+        polls.findOne({"userid": Number(req.params.pollid)}, {}, function(err, results) {
             if (err) {
                 res.json({"err":err});
                 return;
             }
             console.log(results);
-            console.log(req.params.pollid);
-            if (!results || results.answers.length <= req.params.vote) {
+            
+            if (!results ||  req.params.vote <= 0 || results.answers.length <= req.params.vote ) {
                 res.status(404).send();
                 return;
             }
-            polls.updateOne({userid: req.params.userid, answers:req.params.vote-1}, {$inc: "answers.$"});
+            var voteToInc = {};
+            voteToInc["answers." + String(req.params.vote-1) + ".votes"] = 1;
+            //temp workaround for inc
+            //var newanswers = results.answers;
+            //newanswers[req.params.vote-1].votes = newanswers[req.params.vote-1].votes + 1;
+            //console.log(newanswers);
+            polls.updateOne({"userid": Number(req.params.pollid)},
+                {$inc: voteToInc}, function(err, results) {if (err) {res.json({"err":err}); return;}});
             res.json({"Note:": "vote counted"});
         });
     });
     app.post('/api/poll',  passport.authenticate("bearer", {session: false}), function (req, res) {
         console.log(req.body);
         if (req.body.question && req.body.answers) {
-            polls.findOne({"userid": req.user.userid}, function(err, results) {
+            polls.findOne({"userid": req.user.userid}, {}, function(err, results) {
             if (err) {
                 res.json({"err":err});
                 return;
