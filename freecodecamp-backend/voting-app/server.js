@@ -25,21 +25,21 @@ MongoClient.connect(mongourl, function(err, database) {
     if (err) throw err;
     users = database.collection('users');
     polls = database.collection('polls');
-    if (DROP_DATA) {
+    if (DROP_DATA) {//utility function to retest with new data
         users.drop();
         polls.drop();
-        //tokens have a lifetime of 15 seconds
-        users.createIndex({"tokenUpdateTime" : 1}, {"expireAfterSeconds" : 15});
+        //tokens have a lifetime of 600 seconds (15 minutes) 
+        users.createIndex({"tokenUpdateTime" : 1}, {"expireAfterSeconds" : 600});
     }
 });
 
 const fs = require('fs');
-
 //use passport to connect with twitch and get an access key
 const passport = require("passport");
 app.use(passport.initialize());
 app.use(passport.session());
 var twitchStrategy = require("passport-twitch").Strategy;
+var BearerStrategy = require("passport-http-bearer").Strategy;
 const TWITCH_CLIENT_ID = "cmavc0iwqxq8zesuuvwca02gzaxoth";
 
 //read secret from file before starting passport
@@ -80,9 +80,10 @@ fs.readFile("secret", "utf-8", function(err, str) {
     afterPassport();
 });
 
-//authenticate based on token
-var BearerStrategy = require("passport-http-bearer").Strategy;
+
 function afterPassport() {
+    
+    //authenticate based on token
     passport.use(
         new BearerStrategy(
             function (token, done) {
@@ -113,9 +114,9 @@ function afterPassport() {
     
        res.redirect('/?access_token=' + req.user.access_token);
     });
-    app.get('/', function (req, res) {
+    /*app.get('/', function (req, res) {
         res.send("Homepage");
-    });
+    });*/
     app.put('/api/vote/:pollid/:vote', function (req, res) {
         console.log("Starting vote!");
         console.log(req.params.pollid);
@@ -142,37 +143,48 @@ function afterPassport() {
             res.json({"Note:": "vote counted"});
         });
     });
-    /*app.get('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
-        
-    });*/
-    app.post('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
-        console.log(req.body);
-        if (req.body.question && req.body.answers) {
-            polls.findOne({"userid": req.user.userid}, {}, function(err, results) {
+    app.get('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
+        polls.findOne({"userid": req.user.userid}, {}, function(err, results) {
             if (err) {
                 res.json({"err":err});
                 return;
             }
-            //properly format answers
-            var answers = [];
-            for (var answer in req.body.answers) {
-                answers.push({"answer":answer, "votes":0});
-            }
-            
             if (!results) {
-                console.log("poll needs to be created");
-                polls.insert({"userid": req.user.userid, "question": req.body.question, "answers":answers}, function (err) {
-                    if (err) res.json({"err":err});
-                    else res.json({"Note":"Poll added"});
-                });
+                res.json({});
             }
-            else {
-                console.log("update poll with new information");
-                polls.updateOne({"userid": req.user.userid}, {$set: {"question":req.body.question, "answers":answers}});
-                res.json({"Note":"Poll updated"});
-            }
+            var object = {"question":results.question, "answers":results.answers};
+            return res.json(object);
         });
+    });
+    app.post('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
+        console.log(req.body);
+        if (req.body.question && req.body.answers) {
+            polls.findOne({"userid": req.user.userid}, {}, function(err, results) {
+                if (err) {
+                    res.json({"err":err});
+                    return;
+                }
+                //properly format answers
+                var answers = [];
+                for (var answer in req.body.answers) {
+                    answers.push({"answer":answer, "votes":0});
+                }
+            
+                if (!results) {
+                    console.log("poll needs to be created");
+                    polls.insert({"userid": req.user.userid, "question": req.body.question, "answers":answers}, function (err) {
+                        if (err) res.json({"err":err});
+                        else res.json({"Note":"Poll added"});
+                    });
+                }
+                else {
+                    console.log("update poll with new information");
+                    polls.updateOne({"userid": req.user.userid}, {$set: {"question":req.body.question, "answers":answers}});
+                    res.json({"Note":"Poll updated"});
+                }
+            });
         }
+        
         else {
             res.json({"Note":"You posted an invalid poll"});
         }
