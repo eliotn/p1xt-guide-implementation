@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/eliotn/p1xt-guide-implementation#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "mongodb": "^2.2.29",
