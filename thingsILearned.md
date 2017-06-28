@@ -7,6 +7,9 @@ Get an idea of how much time something is worth.
 Much easier to build the product when you are the user, part of this goes to
 domain knowledge you have of your product.
 Also its easier to build what you like.
+Be careful, 'false' != false :P
+Also remember to define a function if you want to shorten a function call.
+You can use https://www.hurl.it/ to test queries without installing anything
 
 ## 6/26/2017
 keep client secrets secret with file reads.
