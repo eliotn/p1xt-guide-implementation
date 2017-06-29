@@ -3,6 +3,12 @@ MongoDB is Very Particular about type of the object as well as the parameter.
 When inputting a custom string for an object parameter you have to create the
 object and use brackets, as the variable name will be interpreted as a string.
 My first instinct is to use print statements instead of a debugger.
+You can use telnet to make http requests.
+get / HTTP/1.1
+Host: example.com
+Be sure to revert to saved when you have cloud 9 saved.  I lost some progress :(
+Of course committing more often would have saved me.
+also make sure you put the static folder in the right directory. Oops.
 
 ## 6/27/2017
 Good managers will support prioritization and that projects are hard to scope.
