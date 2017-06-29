@@ -4,6 +4,8 @@
 //installed express, mongoose/mongodb, passport-twitch
 const express = require('express');
 const app = express();
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'static')));
 const server = "test-eliotn.c9users.io";
 const port = process.env.PORT || 3000;
 const DROP_DATA = true;
@@ -115,7 +117,7 @@ function afterPassport() {
        res.redirect('/?access_token=' + req.user.access_token);
     });
     /*app.get('/', function (req, res) {
-        res.send("Homepage");
+        res.serveFile("Homepage");
     });*/
     app.put('/api/vote/:pollid/:vote', function (req, res) {
         console.log("Starting vote!");
