@@ -26,6 +26,7 @@
     "passport-bearer-strategy": "^1.0.1",
     "passport-http-bearer": "^1.0.1",
     "passport-twitch": "^1.0.3",
+    "request": "^2.81.0",
     "tmi.js": "^1.2.1"
   }
 }

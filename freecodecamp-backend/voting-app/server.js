@@ -8,7 +8,7 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, 'static')));
 const server = "test-eliotn.c9users.io";
 const port = process.env.PORT || 3000;
-const DROP_DATA = false;
+const DROP_DATA = true;
 
 const mongourl = 'mongodb://localhost:27017/twitchvotes';
 var MongoClient = require('mongodb').MongoClient;
@@ -37,7 +37,7 @@ MongoClient.connect(mongourl, function(err, database) {
 
 
 //adds vote, requires number pollid and vote option
-function addVote(pollid, vote) {
+function addVote(pollid, vote, user) {
     console.log("Starting vote!");
     console.log(pollid);
     console.log(vote);
@@ -47,24 +47,23 @@ function addVote(pollid, vote) {
             result_json = {"err":err};
             return;
         }
-        console.log(results);
         
-        if (!results ||  vote < 0 || results.answers.length < vote ) {
+        if (!results || vote < 0 || results.answers.length < vote ) {
             result_json = {"err": "Poll not found"};
             return;
         }
         var voteToInc = {};
         voteToInc["answers." + String(vote) + ".votes"] = 1;
         //temp workaround for inc
-        //var newanswers = results.answers;
-        //newanswers[req.params.vote-1].votes = newanswers[req.params.vote-1].votes + 1;
-        //console.log(newanswers);
         polls.updateOne({"userid": Number(pollid)},
         {$inc: voteToInc}, function(err, results) {
                 if (err) {result_json = {"err": err};}
                 else {result_json = {"Note:": "vote counted"}};
         });
-        
+        console.log(user);
+        if (user) {
+            polls.updateOne({"userid": Number(pollid)}, {$push: {"usersvoted":user}});
+        }
         
     });
     return result_json;
@@ -86,7 +85,7 @@ function createPoll(pollid, question, answerlist) {
             
         if (!results) {
             console.log("poll needs to be created");
-            polls.insert({"userid": Number(pollid), "question": question, "answers":answers}, function (err) {
+            polls.insert({"usersvoted":[], "userid": Number(pollid), "question": question, "answers":answers}, function (err) {
                 if (err) result_json = {"err":err};
                 else result_json = {"Note":"Poll added"};
             });
@@ -101,8 +100,10 @@ function createPoll(pollid, question, answerlist) {
 }
 
 var tmi = require("tmi.js");
+var request = require('request');
 var client;
 const fs = require('fs');
+var channelToID = {};
 fs.readFile("secret-oauth", "utf-8", function(err, str) {
     if (err) throw err;
     client = new tmi.client({
@@ -110,12 +111,42 @@ fs.readFile("secret-oauth", "utf-8", function(err, str) {
             username: "ejg_dnd",
             password: str
         },
-        channels: ["#prepcoin_nl", "#WowHobbs", '#ejg_dnd']
+        channels: ['#ejg_dnd', '#hyperrpg']
     });
     client.connect();
     client.on("chat", function(channel, userstate, message, self) {
-        //console.log(channel + " Me chat me user #" + userstate["user-id"]);
-        //console.log(message);
+        if (message.length > 0) {
+
+            var vote = message.charCodeAt(0)%4;
+            addVote(channelToID[channel], vote, userstate["user-id"]);
+            
+        }
+        
+    });
+    client.on("join", function(channel, username, self) {
+        if (self) {
+            var options = {
+                url: "https://api.twitch.tv/kraken/users?login=" + channel.substring(1, channel.length),
+                headers: {
+                    'Client-ID': TWITCH_CLIENT_ID,
+                    'Accept': "application/vnd.twitchtv.v5+json"
+                }
+            };
+            request(options,
+            function (err, request, body) {
+                if (err) {
+                    throw err;
+                }
+                //console.log(JSON.parse(body)["users"]);
+                channelToID[channel] = Number(JSON.parse(body)["users"][0]["_id"]);
+                var a = [];
+                for (var i = 0; i < 4; i++) {
+                    a.push(i);
+                }
+                createPoll(channelToID[channel], "What is 1+1?", a);
+                console.log(channelToID);
+            });
+        }
     });
 
 });
