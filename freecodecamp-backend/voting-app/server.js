@@ -7,7 +7,7 @@ const app = express();
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'static')));
 const server = "test-eliotn.c9users.io";
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const DROP_DATA = true;
 
 const mongourl = 'mongodb://localhost:27017/twitchvotes';
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 //users contains the following
 //access_token, userid, tokenUpdateTime
 //polls contains the following
-//userid, question, [{answer, votes}]
+//userid, question, [answer], [votes]
 var users;//get the collection
 var polls;//get the polls
 MongoClient.connect(mongourl, function(err, database) {
@@ -53,7 +53,7 @@ function addVote(pollid, vote, user) {
             return;
         }
         var voteToInc = {};
-        voteToInc["answers." + String(vote) + ".votes"] = 1;
+        voteToInc["votes." + String(vote)] = 1;
         //temp workaround for inc
         polls.updateOne({"userid": Number(pollid)},
         {$inc: voteToInc}, function(err, results) {
@@ -79,20 +79,22 @@ function createPoll(pollid, question, answerlist) {
         }
         //properly format answers
         var answers = [];
+        var votes = [];
         for (var answer in answerlist) {
-            answers.push({"answer":answer, "votes":0});
+            answers.push(answer);
+            votes.push(0);
         }
             
         if (!results) {
             console.log("poll needs to be created");
-            polls.insert({"usersvoted":[], "userid": Number(pollid), "question": question, "answers":answers}, function (err) {
+            polls.insert({"usersvoted":[], "userid": Number(pollid), "question": question, "answers":answers, "votes":votes}, function (err) {
                 if (err) result_json = {"err":err};
                 else result_json = {"Note":"Poll added"};
             });
         }
         else {
             console.log("update poll with new information");
-            polls.updateOne({"userid": Number(pollid)}, {$set: {"question":question, "answers":answers}});
+            polls.updateOne({"userid": Number(pollid)}, {$set: {"question":question, "answers":answers, "votes":votes}});
             result_json = {"Note":"Poll updated"};
         }
     });
@@ -111,15 +113,15 @@ fs.readFile("secret-oauth", "utf-8", function(err, str) {
             username: "ejg_dnd",
             password: str
         },
-        channels: ['#ejg_dnd', '#hyperrpg']
+        channels: []
     });
     client.connect();
     client.on("chat", function(channel, userstate, message, self) {
-        if (message.length > 0) {
-
-            var vote = message.charCodeAt(0)%4;
-            addVote(channelToID[channel], vote, userstate["user-id"]);
-            
+        for (var i = 0; i < message.length; i++) {
+            if (message.charCodeAt(i) >= 48 && message.charCodeAt(i) <= 57) {
+                addVote(channelToID[channel], message.charCodeAt(i) - 48, userstate["user-id"]);
+                break;
+            }
         }
         
     });
@@ -251,14 +253,17 @@ function afterPassport() {
             }
             if (!results) {
                 res.json({});
+                return;
             }
-            var object = {"question":results.question, "answers":results.answers};
-            return res.json(object);
+            var object = {"question":results.question, "answers":results.answers, "votes":results.votes};
+            res.json(object);
+            return;
         });
     });
     app.post('/api/poll', passport.authenticate("bearer", {session: false}), function (req, res) {
         console.log(req.body);
         if (req.body.question && req.body.answers) {
+            client.join("#ejg_dnd");
             res.json(createPoll(Number(req.user.userid), req.body.question, req.body.answers));
         }
         
@@ -282,7 +287,11 @@ function afterPassport() {
             res.json({'polls':JSON.stringify(result)}); 
         });
     });
-    app.listen(port, function() {
-        console.log("listening on port " + port);
-    });
+    
 }
+
+app.listen(PORT, function() {
+    console.log("listening on port " + PORT);
+});
+//socket.io
+var io = require('socket.io').listen(app.server);
