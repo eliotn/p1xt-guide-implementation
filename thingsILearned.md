@@ -1,6 +1,6 @@
 ## 6/30/2017
-socket.io isn't too hard to implement.
-I can have api calls do other cool things on the server, like join a twitch channel.
+/** seems to automatically do multiline comments in c++ editor.
+Whats improtant is knowing the algorithmic patterns for coding questions.
 
 ## 6/29/2017
 learned about twitch bots going to try a library and see if I can integrate it in.
@@ -9,8 +9,9 @@ Note: don't count on returning things from within callbacks.
 If you call a function with less arguments then the max in js the undeclared ones
 are undefined, makes sense.
 Interview questions:
-If an edge case would make an answer pointless raise an exception.
-Good interview tips website: https://www.interviewcake.com/coding-interview-tips
+1. If an edge case would make an answer pointless raise an exception.
+2. Good interview tips website: https://www.interviewcake.com/coding-interview-tips
+3. 
 
 
 ## 6/28/2017
