@@ -1,4 +1,6 @@
 ## 6/30/2017
+socket.io isn't too hard to implement.
+I can have api calls do other cool things on the server, like join a twitch channel.
 /** seems to automatically do multiline comments in c++ editor.
 Whats improtant is knowing the algorithmic patterns for coding questions.
 
