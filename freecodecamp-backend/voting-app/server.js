@@ -1,16 +1,20 @@
 //TODO: figure out why there seems to be a double execute sometime with twitch
 //passport
 
-//installed express, mongoose/mongodb, passport-twitch
-const express = require('express');
-const app = express();
-const path = require('path');
-app.use(express.static(path.join(__dirname, 'static')));
-const server = "test-eliotn.c9users.io";
+const SERVER = "test-eliotn.c9users.io";
 const PORT = process.env.PORT || 3000;
 const DROP_DATA = true;
+const MONGO_URL = 'mongodb://localhost:27017/twitchvotes';
+const TWITCH_CLIENT_ID = "cmavc0iwqxq8zesuuvwca02gzaxoth";
 
-const mongourl = 'mongodb://localhost:27017/twitchvotes';
+//express
+const express = require('express');
+const app = express();
+
+//setup file server
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'static')));
+
 var MongoClient = require('mongodb').MongoClient;
 
 //allow JSON request bodies to be readable
@@ -23,7 +27,7 @@ app.use(bodyParser.json());
 //userid, question, [answer], [votes]
 var users;//get the collection
 var polls;//get the polls
-MongoClient.connect(mongourl, function(err, database) {
+MongoClient.connect(MONGO_URL, function(err, database) {
     if (err) throw err;
     users = database.collection('users');
     polls = database.collection('polls');
@@ -54,7 +58,6 @@ function addVote(pollid, vote, user) {
         }
         var voteToInc = {};
         voteToInc["votes." + String(vote)] = 1;
-        //temp workaround for inc
         polls.updateOne({"userid": Number(pollid)},
         {$inc: voteToInc}, function(err, results) {
                 if (err) {result_json = {"err": err};}
@@ -106,12 +109,12 @@ var request = require('request');
 var client;
 const fs = require('fs');
 var channelToID = {};
-fs.readFile("secret-oauth", "utf-8", function(err, str) {
+fs.readFile("secret-oauth", "utf-8", function(err, oauth-pwd) {
     if (err) throw err;
     client = new tmi.client({
         identity: {
             username: "ejg_dnd",
-            password: str
+            password: oauth-pwd
         },
         channels: []
     });
@@ -160,17 +163,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 var twitchStrategy = require("passport-twitch").Strategy;
 var BearerStrategy = require("passport-http-bearer").Strategy;
-const TWITCH_CLIENT_ID = "cmavc0iwqxq8zesuuvwca02gzaxoth";
 
 //read secret from file before starting passport
-var clientSecret; 
-fs.readFile("secret", "utf-8", function(err, str) {
+fs.readFile("secret", "utf-8", function(err, clientSecret) {
     if (err) throw err;
-    clientSecret = str;
     passport.use(new twitchStrategy({
         clientID: TWITCH_CLIENT_ID,
         clientSecret: clientSecret,
-        callbackURL: "https://" + server + "/auth/twitch/callback",
+        callbackURL: "https://" + SERVER + "/auth/twitch/callback",
         scope: "user_read",
         session: false
     }, function(accessToken, refreshToken, profile, done) {
@@ -293,5 +293,6 @@ function afterPassport() {
 app.listen(PORT, function() {
     console.log("listening on port " + PORT);
 });
-//socket.io
+
+//socket.io -- TODO: Implement for live updates
 var io = require('socket.io').listen(app.server);
