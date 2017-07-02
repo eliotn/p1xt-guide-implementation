@@ -1,3 +1,14 @@
+## 7/2/2017
+
+
+
+## 7/1/2017
+Closure -- scopes will keep a state at a later date
+"use strict;" main effect is to prevent a default assignment to the global scope.  Many browsers support window.<var> to do this without needing "use strict";
+Beware of with and eval, as they can modify scope.
+Keep in mind hoisting, function definitions are hoisted to the top and set first.
+
+
 ## 6/30/2017
 socket.io isn't too hard to implement.
 I can have api calls do other cool things on the server, like join a twitch channel.
