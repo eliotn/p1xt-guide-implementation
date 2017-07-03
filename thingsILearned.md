@@ -1,11 +1,15 @@
 ## 7/2/2017
-
+Environment variables are a better strategy than secret files for deployment.
+Never ever ever do an ajax request synchronously as it will lock up the ui.
+console.log may be asynchronous in browsers - in order to get an accurate value, you need to add a closure to the object by making it a string or otherwise capture the right value.
+this will reference the way in which it was called at the time it was called.  It may or may not reference the function.
+In ES6, objects can be assigned different properties.  Most useful for library apis. 
 
 
 ## 7/1/2017
 Closure -- scopes will keep a state at a later date
-"use strict;" main effect is to prevent a default assignment to the global scope.  Many browsers support window.<var> to do this without needing "use strict";
-Beware of with and eval, as they can modify scope.
+"use strict;" main effect is to prevent a default assignment to the global scope.  Many browsers support window.<var> to do this without needing "use strict", but there are other effects too.
+Beware of with and eval, as they can modify scope.  Also they stop certain optimizations.
 Keep in mind hoisting, function definitions are hoisted to the top and set first.
 
 
