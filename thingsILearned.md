@@ -1,3 +1,13 @@
+## 7/3/2017
+Asynchronous code cannot be interleaved with other async code in a different scope, but order is not guaranteed!
+Never assume the order that an async request comes in, even if one task is always *much slower*
+always do function() {} on the callback.
+Async can lead to race conditions by its very nature.  But there are latches/checks that can prevent this.
+Object.prototype goes up a chain.
+You can't use variables until you declare them, in their scope, of course.
+If you use function declarations within blocks as part of an if statement, they weren't hoisted in chrome, heed the authors warning and don't even think about using it.
+Angular.js uses closure to monitor dependencies.
+
 ## 7/2/2017
 Environment variables are a better strategy than secret files for deployment.
 Never ever ever do an ajax request synchronously as it will lock up the ui.

@@ -35,4 +35,15 @@ var ExampleLibrary = {
 undefined = true;
 console.log((function test(undefined) { return undefined; })());
 
+//let for previous ESes
+try {
+        throw Exception();
+}
+catch (err) {
+	err = "Set let value here";
+        console.log("In block scope " + err);
+}
+console.log(err);//doesn't work
 
+//randomblock
+{let onlyhere = "This block is where I live"; console.log(onlyhere);} console.log(onlyhere);
