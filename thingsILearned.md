@@ -1,3 +1,6 @@
+## 7/5/2017
+Always have a local debug environment setup
+
 ## 7/4/2017
 call will thread in anything to this, but it will be coerced to object.  Note that it ignores null/undefined.
 You need to have closure on args if you want to run a callback with them.
