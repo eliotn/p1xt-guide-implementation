@@ -1,3 +1,16 @@
+## 7/4/2017
+call will thread in anything to this, but it will be coerced to object.  Note that it ignores null/undefined.
+You need to have closure on args if you want to run a callback with them.
+Only way to create null object (no __prototype) is object.create(null)
+Is global an alternative name for window on things such as node?
+I can't convert an object to a primitive in google chrome.
+If you attempt to put a value into an invalid positive array index, the array will be padded with undefined.
+Functions are not exactly the same as a reference? if you bind a copy, only the copy will keep the binding.
+length is a non-enumerable property in an array!
+careful get and put can do infinite recursion
+
+
+
 ## 7/3/2017
 Asynchronous code cannot be interleaved with other async code in a different scope, but order is not guaranteed!
 Never assume the order that an async request comes in, even if one task is always *much slower*
