@@ -1,5 +1,12 @@
+## 7/6/2017
+I found a good reference for design for the website.
+https://stackoverflow.com/questions/6126584/how-to-use-node-js-to-build-pages-that-are-a-mix-between-static-and-dynamic-cont
+Basically, I can make a single page application that uses socket.io to design the website.
+xxd is useful to display the actual bits of an object.  The appropriate command
+is xxd -c (bytes per line) -g (bytes per group) -s (offset bytes)
+
 ## 7/5/2017
-Always have a local debug environment setup
+Always have a local debug environment setup.
 
 ## 7/4/2017
 call will thread in anything to this, but it will be coerced to object.  Note that it ignores null/undefined.
