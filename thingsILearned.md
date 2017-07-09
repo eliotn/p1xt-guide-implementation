@@ -1,3 +1,18 @@
+## 7/8/2017
+The key to focusing is to be in the state of heightened focus.
+Found a useful decision chart for appropriate HTTP responses https://i.stack.imgur.com/whhD1.png
+Mustache is necessary, Http Templating is a *very* useful tool.
+object.create(null) truly has no prototype because the parameter specifies the prototype.
+constructor property should not be used to determine the function it was
+constructed by, because it only usuallyhappens to link to the object.
+Also prototype just is assigned like constructor as a side effect.
+You can use twitch to get someones oauth key, but they need to authorize the app to allow
+them to chat.
+Use Object.create(null) for a dictionary without any shadowing or weird dropped values from having properties.
+
+## 7/7/2017
+Mustache looks like a good option for serving up content
+
 ## 7/6/2017
 I found a good reference for design for the website.
 https://stackoverflow.com/questions/6126584/how-to-use-node-js-to-build-pages-that-are-a-mix-between-static-and-dynamic-cont
