@@ -41,7 +41,10 @@ console.log(globalvar);
 //the perils of using with, restricted by strict mode
 var blankobj = {};
 var important = "1,1,2,3,5,8,13,21";
-with (blankobj) {
-	important = "No"
+function isntsafe() {
+	with (blankobj) {
+		important = "No"
+	}
 }
-console.log(important);
+isntsafe();
+console.log(important);//No

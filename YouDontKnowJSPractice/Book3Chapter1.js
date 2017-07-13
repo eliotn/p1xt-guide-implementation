@@ -10,11 +10,11 @@ function a() {
     a.call(test);
 })();
 
-//another way to pass this, have something call its own variable.  This confuses programmers.
+//the way programmers think about this in OO programming is real.
 (function() {
-    var a = {"hi": (function() {console.log(this);})}; a.hi();});
+    var a = {"hi": (function() {console.log(this);})}; a.hi();})();
 
-//this will coerce numbers and similar types to objects, but call has no effect on this for null/undefined args
+//this will coerce numbers and similar types to objects, but undefined and null will become this
 (function () {
     function test() {
         console.log(this);

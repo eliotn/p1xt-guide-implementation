@@ -1,9 +1,10 @@
 //hiding can be important
 var sideeffects = "Nah, trust me";
-console.log(sideeffects);
-test();
-//what if there was an infinite loop with "Print this"?
-console.log(sideeffects);
+console.log(sideeffects);//Nah, trust me
+test();//Print this with var in test otherwise Nah trust me
+
+
+console.log(sideeffects);//Nah trust me
 function test() {
 	//try without var with peril -- or you can hide with a different
 	//variable
@@ -17,6 +18,11 @@ var ExampleLibrary = {
 	mult: function(a, b) { return a * b;},
 	div: function(a, b) { return a / b;}
 }
+console.log(ExampleLibrary.add(1, 1));//2
+console.log(ExampleLibrary.sub(1, 1));//0
+console.log(ExampleLibrary.mult(2, 2));//4
+console.log(ExampleLibrary.div(2, 2));//1
+
 
 //I cant be accessed after my job, I am a temp worker
 //anonymous function thats self contained
@@ -28,10 +34,11 @@ var ExampleLibrary = {
 	}
 })(3);
 
-//other form, moves parenthesis 
+//other form for Immediately Invoked Function Expression moves parenthesis 
 (function test() {console.log(42);}());
 
 //be careful with this -- however setting undefined seems to silently fail in chrome console
+//also c9 console detects that you are trying to shadow undefined
 undefined = true;
 console.log((function test(undefined) { return undefined; })());
 
@@ -43,7 +50,7 @@ catch (err) {
 	err = "Set let value here";
         console.log("In block scope " + err);
 }
-console.log(err);//doesn't work
+console.log(err);//Reference Error
 
 //randomblock
 {let onlyhere = "This block is where I live"; console.log(onlyhere);} console.log(onlyhere);

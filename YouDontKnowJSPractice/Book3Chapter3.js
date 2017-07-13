@@ -17,14 +17,21 @@ exhibit = new Date();//current date
 exhibit = new RegExp();// regular expression is /(?:)/ on chrome
 exhibit = new Error("This is not an error.");
 
-//simple duplicator, but how do I get the deep copy?
-JSON.parse(JSON.stringify([1, 2, 3]));
+//simple duplicator.  Will not be able to deep copy but works pretty well
+function duplicate(_obj) {
+	return JSON.parse(JSON.stringify(_obj));
+}
+var a = {1:2, 3:4, 5:6};
+var b = duplicate(a);
+b[3] = 5;
+console.log(b[3]);//5
+console.log(a[3]);//4
 
 var obj = Object.create(null);
 Object.defineProperty(obj, "notenumerable", {value:"ok", writable:false, configurable:false, enumerable:false});
 Object.defineProperty(obj, "enumerable", {value:"only me", writable:false, configurable:false, enumerable:true});
 for (i in obj) {
-	console.log(i, obj[i]);
+	console.log(obj[i]);//only me
 }
 
 //forever alone - only way to leave is to assign a different object
@@ -36,6 +43,7 @@ Object.freeze(foreverAlone);
 var dateObj = Object.create(null);
 Object.defineProperty(dateObj, "date", {get: function() { return new Date(); }, enumerable: true});
 Object.freeze(dateObj);
+console.log(dateObj.date);//current date
 
 //opposite day -- two wrongs make a right ;)
 var opposites = {
@@ -57,7 +65,7 @@ var opposites = {
 	}
 }
 
-//custom iterator flipflops X times
+//custom iterator flipflops X times before being done
 function FlipFlop(X) {
 	var myObject = Object.create(null);
 	Object.defineProperty(myObject, Symbol.iterator, {
@@ -83,6 +91,7 @@ for (var v of FlipFlop(3)) {
 	console.log(v);
 }
 
+//iterates through fibbonachi numbers infinitely
 var fibbonachi = {
 	[Symbol.iterator]: function() {
 		var f0 = 0
