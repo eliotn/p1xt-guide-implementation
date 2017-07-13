@@ -1,3 +1,23 @@
+## 7/13/2017
+Need to keep reading/rereading p1xt guide.  It gives me new energy to keep my motivation.
+Looking through red film for secret decoding, finding nothing new, but I can kind of make
+out the body with an image filter.
+It helps to go over previous examples.
+
+## 7/12/2017
+Didn't do much programming today.
+
+## 7/11/2017
+did alpha-numeric wrong in foundation, oops.
+The foundation form validation seems tricky to get right.
+
+## 7/10/2017
+Passport always bonds the token object to user
+It can be better in code to check conditions one at a time.
+
+## 7/9/2017
+Replace one with upsert:true is the correct way to do replacements for mongod.
+
 ## 7/8/2017
 The key to focusing is to be in the state of heightened focus.
 Found a useful decision chart for appropriate HTTP responses https://i.stack.imgur.com/whhD1.png
