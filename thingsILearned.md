@@ -1,11 +1,22 @@
+## 7/16/2017
+
+
+## 7/15/2017
+With refactoring, always be careful about order and potential side effects.
+
+## 7/14/2017
+Streaming on twitch is helpful for my programming effort.
+strtof converts string to float in c.
+
 ## 7/13/2017
 Need to keep reading/rereading p1xt guide.  It gives me new energy to keep my motivation.
 Looking through red film for secret decoding, finding nothing new, but I can kind of make
 out the body with an image filter.
 It helps to go over previous examples.
+safari's console apparently relies on the constructor for the object name so browser matters when debugging.
+You can load javascript libraries dynamically https://www.sitepoint.com/dynamically-load-jquery-library-javascript/
 
 ## 7/12/2017
-Didn't do much programming today.
 
 ## 7/11/2017
 did alpha-numeric wrong in foundation, oops.
