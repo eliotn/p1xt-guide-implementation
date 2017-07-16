@@ -227,7 +227,7 @@ a.out stands for assembly out
 
 ## 6/19/2017
 You can use const in ES6 javascript to enforce constants
->>> and >> are different, >> ignores sign, >>> does not.
+\>\>\> and >> are different, >> ignores sign, >>> does not.
 remember ===/== and !==/!= are different because of whether they are strict or looser.
 learn how to use it
 **= works in javascript.  So do |= ^= &= <<= >>=.
