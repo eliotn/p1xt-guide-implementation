@@ -1,5 +1,20 @@
 ## 7/16/2017
 - Remember to use the Markdown Live previewer when editing markdown files live.
+- You can get a function's # of arguments with .length
+- typeof is another way to do dependency injection.  One way I am familiar with 
+in node.js is ||
+- Libraries might be important for handling unicode characters 
+- 'reverseͨ͆.'.split("").reverse().join(""); Does not work as it puts the special
+character over the wrong letter.
+- Octal numbers can be specified in non-strict mode by 0xxxx, this is confusing.
+- Negetive zero is not coerced or compared properly by ===.
+- Object.is is good for equality for stricter cases.
+- Arrays can have holes in JS which are confusingly represented by the different
+browsers, hole means the property is not there.
+- Function() is only good for dynamically making functions with different parameters
+- RegExp() can be used to define functions dynamically
+- You don't know JS book is wrong, RegExp prototype is default defined as an
+object in chrome and firefox.
 
 ## 7/15/2017
 - With refactoring, always be careful about order and potential side effects.
