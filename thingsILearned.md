@@ -1,3 +1,24 @@
+## 7/20/2017
+- Read ahead a little, but it looks like Promises are a useful alternative to
+callback hell.
+- One gotcha with == is that it is an invalid way to test something's truthiness.
+Use if (expr) or !!expr or Boolean instead to get something's truthiness.  This
+is because true and false will instead become 1 and 0.
+
+## 7/19/2017
+- Coercion isn't evil.  The only evil that it has is when it confuses other
+developers.
+- == allows coercion in comparisons. === disallows it. == and ===
+BOTH check type, == is more work because it coerces according to several rules.
+
+## 7/18/2017
+- When Date becomes an int it is always the unix timestamp.
+
+
+## 7/17/2017
+- parseInt coerces to string, then politely discards the junk afterwards,
+- which can make some operations look confusing.
+
 ## 7/16/2017
 - Remember to use the Markdown Live previewer when editing markdown files live.
 - You can get a function's # of arguments with .length
