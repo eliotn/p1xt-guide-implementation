@@ -1,3 +1,6 @@
+## 7/21/2017
+- coercion for == is actually pretty simple when you understand how it works
+
 ## 7/20/2017
 - Read ahead a little, but it looks like Promises are a useful alternative to
 callback hell.
