@@ -1,5 +1,28 @@
+## 7/24/2017
+- Job Queue is a way to mess with event queue ordering by ensuring that code is
+run at end of tick.
+
+## 7/23/2017
+- ?: is right associative
+- code after a finally clause isn't run, also its run after you break out of
+try (like with return/continue)
+- You can use switch (true) to transform if/if-else code into a switch statement,
+because if conditions can be placed into the cases.  However there are caveats.
+- DOM elements with global ids are also javascript variables.
+
+## 7/22/2017
+- Loose comparison can throw typeerrors from coercion, ex: Object.create(null) == ""
+- ++a++ is invalid because it evaluates to ++<returnvalue>.
+- You can use (a++, ++a).  This discards the first statement when returning, so
+you get a+2 returned.  Without parenthesis, b = a++, ++a will simply set b to a+1
+first before executing ++a.
+- you can object destructure with brackets as part of a var declaration or
+function definition, and you can nest it
+- Always cast malloc to the pointer type that is needed.
+
 ## 7/21/2017
 - coercion for == is actually pretty simple when you understand how it works
+- Note, safari console seemes to interpret valid JSON properly.
 
 ## 7/20/2017
 - Read ahead a little, but it looks like Promises are a useful alternative to
