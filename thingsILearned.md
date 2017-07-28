@@ -1,3 +1,17 @@
+## 7/27/2016
+- Malloc never zero initializes memory.  Valgrind will complain if you attempt
+to follow pointers on uninitialized memory.
+- You can't convert from sync to async unless you directly/indirectly play with
+the event queue loop.
+- Found await 
+https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
+
+## 7/26/2016
+
+## 7/25/2017
+- Code that can run now or later is dangerous because it can change the order
+that statements are executed in.
+
 ## 7/24/2017
 - Job Queue is a way to mess with event queue ordering by ensuring that code is
 run at end of tick.
