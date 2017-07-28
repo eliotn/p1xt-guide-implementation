@@ -6,6 +6,6 @@
 
 ## Partially Done
 - You Don't Know JS: async & performance (only chapter 1)
-- EDX CS50 Weeks 0-4 (working on week 5)
+- EDX CS50 Weeks 0-5 (working on weeks 6-8, might also watch some of the specific topic videos)
 - Voting app, users can login with twitch (want to polish with tests and 
 add ability to do multiple polls).
