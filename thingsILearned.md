@@ -1,9 +1,23 @@
+## 7/30/2016
+- Machine learning is based off whether what you
+are recognizing has the closest distance.
+
+## 7/29/2016
+- Good hint, never rely on order between async callbacks.
+- Also promises can only be called once.  Nice way to stop mistakes.
+- Always better to pass an error object than a string when hanlding errors.
+- curl -I can be used to just get the header of an http response.
+
+## 7/28/2016
+- For a promise object, the promise function is run synchronously, likely with an
+asynchronous call, but the functon inside then is always asynchronous.
+
 ## 7/27/2016
 - Malloc never zero initializes memory.  Valgrind will complain if you attempt
 to follow pointers on uninitialized memory.
 - You can't convert from sync to async unless you directly/indirectly play with
 the event queue loop.
-- Found await 
+- Found await-going to explore await as part of chapter 5 as it looks like an improvement.
 https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
 
 ## 7/26/2016
@@ -17,7 +31,7 @@ that statements are executed in.
 run at end of tick.
 
 ## 7/23/2017
-- ?: is right associative
+- con?a:b is right associative
 - code after a finally clause isn't run, also its run after you break out of
 try (like with return/continue)
 - You can use switch (true) to transform if/if-else code into a switch statement,
