@@ -1,3 +1,12 @@
+## 8/1/2016
+- Once an error comes up, a promise will continue to be resolved in a dandy
+way.  For a timeout promise, the best way to propagate an error is by setting a variable.
+- You have to store an iterator state and the values that get returned seperately.
+
+## 7/31/2016
+- setTimeout returns immediately, this can mess up
+async code if I'm not careful.
+
 ## 7/30/2016
 - Machine learning is based off whether what you
 are recognizing has the closest distance.
