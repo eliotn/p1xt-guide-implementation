@@ -1,3 +1,6 @@
+## 8/2/2016
+
+
 ## 8/1/2016
 - Once an error comes up, a promise will continue to be resolved in a dandy
 way.  For a timeout promise, the best way to propagate an error is by setting a variable.
