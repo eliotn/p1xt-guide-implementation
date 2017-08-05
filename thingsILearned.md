@@ -1,5 +1,6 @@
-## 8/2/2016
-
+## 8/4/2016
+- Generators seem to store global variables left to right for a future generator run
+- Learned how to implement a combinations of X algorithm.
 
 ## 8/1/2016
 - Once an error comes up, a promise will continue to be resolved in a dandy
