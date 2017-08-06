@@ -1,3 +1,6 @@
+## 8/5/2016
+- I try to run one of the p1xt examples in safari and it doesn't work.  Bug?
+
 ## 8/4/2016
 - Generators seem to store global variables left to right for a future generator run
 - Learned how to implement a combinations of X algorithm.
