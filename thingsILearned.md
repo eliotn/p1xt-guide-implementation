@@ -1,34 +1,41 @@
-## 8/5/2016
-- I try to run one of the p1xt examples in safari and it doesn't work.  Bug?
+## 8/9/2017
+- The generator async pattern relies on the function returning asynchronously.
 
-## 8/4/2016
+## 8/6/2017
+- Python will first check the local directory for files to import.  So don't
+name your application flask.py if you are trying to use flask.
+
+## 8/5/2017
+- I tried to run one of the generator examples and saw some weird behavior???
+
+## 8/4/2017
 - Generators seem to store global variables left to right for a future generator run
 - Learned how to implement a combinations of X algorithm.
 
-## 8/1/2016
+## 8/1/2017
 - Once an error comes up, a promise will continue to be resolved in a dandy
 way.  For a timeout promise, the best way to propagate an error is by setting a variable.
 - You have to store an iterator state and the values that get returned seperately.
 
-## 7/31/2016
+## 7/31/2017
 - setTimeout returns immediately, this can mess up
 async code if I'm not careful.
 
-## 7/30/2016
+## 7/30/2017
 - Machine learning is based off whether what you
 are recognizing has the closest distance.
 
-## 7/29/2016
+## 7/29/2017
 - Good hint, never rely on order between async callbacks.
 - Also promises can only be called once.  Nice way to stop mistakes.
 - Always better to pass an error object than a string when hanlding errors.
 - curl -I can be used to just get the header of an http response.
 
-## 7/28/2016
+## 7/28/2017
 - For a promise object, the promise function is run synchronously, likely with an
 asynchronous call, but the functon inside then is always asynchronous.
 
-## 7/27/2016
+## 7/27/2017
 - Malloc never zero initializes memory.  Valgrind will complain if you attempt
 to follow pointers on uninitialized memory.
 - You can't convert from sync to async unless you directly/indirectly play with
@@ -36,7 +43,7 @@ the event queue loop.
 - Found await-going to explore await as part of chapter 5 as it looks like an improvement.
 https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9
 
-## 7/26/2016
+## 7/26/2017
 
 ## 7/25/2017
 - Code that can run now or later is dangerous because it can change the order
