@@ -1,3 +1,8 @@
+## 8/11/2017
+- Inside of a generator, yield *[async1, async2, ...] is another way to do the
+store of values then yield, but this is probably too clever of a solution.
+- Generators can be recursive, which is nice.
+
 ## 8/9/2017
 - The generator async pattern relies on the function returning asynchronously.
 
