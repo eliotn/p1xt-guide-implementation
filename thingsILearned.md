@@ -1,3 +1,8 @@
+## 8/12/2017
+- Mysql triggers - Deleting rows on insert looks like a bad idea.
+- There are three different frameworks for node:
+https://www.airpair.com/node.js/posts/nodejs-framework-comparison-express-koa-hapi
+
 ## 8/11/2017
 - Inside of a generator, yield *[async1, async2, ...] is another way to do the
 store of values then yield, but this is probably too clever of a solution.
