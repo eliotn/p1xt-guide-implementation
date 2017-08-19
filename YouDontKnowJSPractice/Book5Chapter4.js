@@ -108,10 +108,74 @@ function *generatePossibilities() {
 function generatorLen(gen) {
 	var it = step(gen);
 	for (var length = 0; gen(it) != 0; length++) {
-		
+
 	}
 	length = 3;
 }
 
+//task: transform run to runAll -- my attempt at a utility
+//generator format for each argument
+//first yield: Pass a promise that you want to wait for.
+//second yield:
+function runAllTest() {
+	var promises = [];
+	var generators = [];
+	for (var arg of arguments) {//store all generators
+		generators.push(arg());
+	}
+	for (var v of generators) {//get all promises
+		let x = v;//create closure for the generator to the promise.
+		//run each promise, when it finishes, it will advance to
+		var promise2 = Promise.resolve(x.next().value).then(function (data) {
+			x.next(data);
+		});
+		promises.push(promise2);
+	}
+	return Promise.all(promises)//wait for all promises to finish
+	.then( function() {
+		for (var v of generators) {//do the finishing generator call for each one in order
+			v.next();
+		}
+	} );
+}
 
+	/*var args = [].slice.call( arguments, 1), it;
 
+	// initialize the generator in the current context
+	it = gen.apply( this, args );
+
+	// return a promise for the generator completing
+	return Promise.resolve()
+		.then( function handleNext(value){
+			// run to the next yielded value
+			var next = it.next( value );
+
+			return (function handleResult(next){
+				// generator has completed running?
+				if (next.done) {
+					return next.value;
+				}
+				// otherwise keep going
+				else {
+					return Promise.resolve( next.value )
+						.then(
+							// resume the async loop on
+							// success, sending the resolved
+							// value back into the generator
+							handleNext,
+
+							// if `value` is a rejected
+							// promise, propagate error back
+							// into the generator for its own
+							// error handling
+							function handleErr(err) {
+								return Promise.resolve(
+									it.throw( err )
+								)
+								.then( handleResult );
+							}
+						);
+				}
+			})(next);
+		} );*/
+}
