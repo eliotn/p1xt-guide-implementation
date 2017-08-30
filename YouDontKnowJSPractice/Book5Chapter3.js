@@ -13,7 +13,7 @@ function timeoutPromise(delay, willReject) {
 				reject( "Timeout!" );
 			}
 			else {
-				resolve();
+				resolve(delay);
 				//once resolved/rejected a promise will silently ignore future calls
 				resolve();
 				reject("Timeout!");
@@ -25,7 +25,7 @@ function timeoutPromise(delay, willReject) {
 Promise.race( [
 	timeoutPromise( 1000, false ),
 	timeoutPromise( 2000, true ),
-	
+
 ] )
 //Accepted
 .then(function() {console.log("Accepted");}, function (err) {console.log("Error:", err);})
@@ -71,4 +71,3 @@ Promise.race(promises)
 
 //wrapping setTimeout with Promise.wrap defined in you don't know JS
 Promise.wrap( function(x, cb) { setTimeout(cb, x);} );
-

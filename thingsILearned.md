@@ -4,9 +4,13 @@
 - Found http://frenetic.be/tricks/simple-timer.php
 Cool alternative to relying on setTimeout but I don't think
 the timer is completely accurate...
--Benchmark seems to be a node library?  Tests seem to fail.
+- Benchmark seems to be a node library?  Tests seem to fail.
 
 ### Altering the syntax of example code seems to work well as a teaching tool. It seems to avoid some of the copy paste syndrome and forces you to think about flow.
+
+## 8/19/2017
+- Generators are really about pausing code execution.  The code pauses at a particular yield statement and waits.  That is why they can work with async, as you can have resume when an async task finishes built into the structure.
+- runAll is tricky to implement because the generator script doesn't seem to be saved?
 
 ## 8/12/2017
 - Mysql triggers - Deleting rows on insert looks like a bad idea.
@@ -14,7 +18,7 @@ the timer is completely accurate...
 https://www.airpair.com/node.js/posts/nodejs-framework-comparison-express-koa-hapi
 
 ## 8/11/2017
-- Inside of a generator, yield *[async1, async2, ...] is another way to do the
+- Inside of a generator, yield star[async1, async2, ...] is another way to do the
 store of values then yield, but this is probably too clever of a solution.
 - Generators can be recursive, which is nice.
 
@@ -119,9 +123,9 @@ BOTH check type, == is more work because it coerces according to several rules.
 ## 7/16/2017
 - Remember to use the Markdown Live previewer when editing markdown files live.
 - You can get a function's # of arguments with .length
-- typeof is another way to do dependency injection.  One way I am familiar with 
+- typeof is another way to do dependency injection.  One way I am familiar with
 in node.js is ||
-- Libraries might be important for handling unicode characters 
+- Libraries might be important for handling unicode characters
 - 'reverseͨ͆.'.split("").reverse().join(""); Does not work as it puts the special
 character over the wrong letter.
 - Octal numbers can be specified in non-strict mode by 0xxxx, this is confusing.
@@ -213,7 +217,7 @@ is xxd -c (bytes per line) -g (bytes per group) -s (offset bytes)
 - Never ever ever do an ajax request synchronously as it will lock up the ui.
 - console.log may be asynchronous in browsers - in order to get an accurate value, you need to add a closure to the object by making it a string or otherwise capture the right value.
 - this will reference the way in which it was called at the time it was called.  It may or may not reference the function.
-- In ES6, objects can be assigned different properties.  Most useful for library apis. 
+- In ES6, objects can be assigned different properties.  Most useful for library apis.
 
 
 ## 7/1/2017
@@ -317,7 +321,7 @@ ex: cs50 buggy3
 
 
 ## 6/21/2017
-- New idea for homework, do every interview data structure from scratch, and code all of 
+- New idea for homework, do every interview data structure from scratch, and code all of
 the sort algorithms before the interview.
 - Talk about tradeoffs when facing a hard programming problem.
 - Watching interview video - Knowing Big O notation will be key for the interview.
@@ -335,7 +339,7 @@ the sort algorithms before the interview.
 ## 6/20/2017
 - I did refactoring for the credit.c too fast.  Too many errors.
 - You can print part of a string with %.1s for example like with floats
-- C program pre-processor directives get resolved first! Then to assembly. Then 
+- C program pre-processor directives get resolved first! Then to assembly. Then
 make binaries and link them together.
 - Fun fact: superman 3 has tiny floating point as a plot point, also the error in the space program (legacy code example) was due to a conversion that was not valid.
 - You can expand a float point number to infinite digits, it shows how it is a fractional approximation in c.  EX: %.59f
@@ -360,7 +364,7 @@ remember ===/== and !==/!= are different because of whether they are strict or l
 - Prompt is the input() of javascript;
 - The undefined from console.log is because it evals to -undefined.
 - Shift-enter allows multiple lines on the javascript console.
-- The browser actually compiles javascript.  Javascript is not interpreted. 
+- The browser actually compiles javascript.  Javascript is not interpreted.
 - Another word for constant is literal value.
 - If you don't understand why something works, learn!
 - When summing 4 or more things the algorithm is always take two sums, then sum those things together etc.  Log(n) vs n.
