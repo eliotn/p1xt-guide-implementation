@@ -1,3 +1,13 @@
+## 8/29/2017
+- Same with Asm.js
+- SIMD has been replaced by WebAssembly.
+- Found http://frenetic.be/tricks/simple-timer.php
+Cool alternative to relying on setTimeout but I don't think
+the timer is completely accurate...
+-Benchmark seems to be a node library?  Tests seem to fail.
+
+### Altering the syntax of example code seems to work well as a teaching tool. It seems to avoid some of the copy paste syndrome and forces you to think about flow.
+
 ## 8/12/2017
 - Mysql triggers - Deleting rows on insert looks like a bad idea.
 - There are three different frameworks for node:
