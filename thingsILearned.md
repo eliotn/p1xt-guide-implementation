@@ -1,3 +1,6 @@
+## 8/30/2017
+- Learned that Visual Studio Code has a neat way to do build processes with tasks.json.
+
 ## 8/29/2017
 - Same with Asm.js
 - SIMD has been replaced by WebAssembly.
