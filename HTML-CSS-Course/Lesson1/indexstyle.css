@@ -1,0 +1,12 @@
+body {
+    background-color:whitesmoke;
+}
+p {
+    color: red; font-size: 15px;
+}
+#bodydiv {
+    border:10px; background-color:violet;
+}
+.bluetext {
+    color: blue;
+}
