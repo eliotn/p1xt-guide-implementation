@@ -4,6 +4,9 @@ body {
 p {
     color: red; font-size: 15px;
 }
+h1 {
+    font-size: 45px;
+}
 #bodydiv {
     border:10px; background-color:violet;
 }
