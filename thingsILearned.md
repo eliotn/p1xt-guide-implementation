@@ -1,5 +1,11 @@
+## 8/31/2017
+- i or em can be used to indicate italics.  b or strong can be used to indicate bold.  But the real difference is in connotation, b or i are usually just used for stylistic fonts, while em/strong are used to emphesize a word.  css means these can be customized to behave differently.
+- Learned that elements can be block or inline.  Now the block or inline properties make more sense.
+- Programming names should always refer to use/content.
+
 ## 8/30/2017
 - Learned that Visual Studio Code has a neat way to do build processes with tasks.json.
+- Include charset in html pages.  A standard document for list of tags would be helpful.
 
 ## 8/29/2017
 - Same with Asm.js
