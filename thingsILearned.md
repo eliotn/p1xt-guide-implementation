@@ -1,6 +1,20 @@
+## 9/2/2017 - What I learned on my 25th Birthday
+- CSS properties have different priorities (cascades):  For example properties that come later override properties that come earlier.
+Priority is given by id, class, then type, then by number of selectors in that category.
+- Also be careful of repeating css tags, e.g. #dedication h2#dedication doesn't work but h2#dedication does.
+- Percentage ties the value to width, em ties it to font size.
+- inline-block means that block elements will not break out of the inline element itself, but will be included.
+- difference between margin and padding, whether its inside or outside the border.
+- Margin, padding, and border aren't counted in size.  Also inline elements ignore certain parameters.
+- Border radius accepts multiple parameters, and starts from the top left.
+- use border-box to prevent sizing issues, so that padding and border is within size.
+
+## 9/1/2017
+- HTML Has several different types of div tags that have a connotation, like <header> and <footer>
+
 ## 8/29/2017
-- Same with Asm.js
 - SIMD has been replaced by WebAssembly.
+- Same with Asm.js
 - Found http://frenetic.be/tricks/simple-timer.php
 Cool alternative to relying on setTimeout but I don't think
 the timer is completely accurate...
