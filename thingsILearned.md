@@ -1,3 +1,10 @@
+## 9/3/2017
+- float properties on inline elements are a bad idea, since float removes the element
+from the normal flow and changes it back to block.
+- If I use float, I will need to return the flow of the page to its normal status.
+One way is by using clear:both on the next element, or containing floats in a parent element.
+There is a specific element called a clearfix used for doing this.
+
 ## 9/2/2017 - What I learned on my 25th Birthday
 - CSS properties have different priorities (cascades):  For example properties that come later override properties that come earlier.
 Priority is given by id, class, then type, then by number of selectors in that category.
