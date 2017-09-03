@@ -4,6 +4,13 @@ from the normal flow and changes it back to block.
 - If I use float, I will need to return the flow of the page to its normal status.
 One way is by using clear:both on the next element, or containing floats in a parent element.
 There is a specific element called a clearfix used for doing this.
+- For the inline block elements, the line break will add an additional space.  You need to comment
+the line break out or put it on the same line.
+- Relative is relative to where it would normally be positioned.
+Absolute positioning is relative to the nearest relatively positioned element, or the body.
+-Typeface weights (bold/normal/100-900) require the text to support it.
+-Set height and line-height to the same value to vertically center text.
+-In font the slash is for (font size)/(line height)
 
 ## 9/2/2017 - What I learned on my 25th Birthday
 - CSS properties have different priorities (cascades):  For example properties that come later override properties that come earlier.
