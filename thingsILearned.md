@@ -1,3 +1,15 @@
+## 9/4/2017
+- Gradients can have keywords to point to a corner or direction as the first argument,
+such as 'to top'.
+- When using multiple backgrounds, they are applied from last to first in the list.
+- for background-size, cover / contain is equivelent to 100% auto, but flipped
+based on image length >= width
+- ordered lists have a start number and reverse attribute.  List elements start from the value attribute.
+- Lists are often used to do button work.  You can make them inline-block.
+- Image resizing through css overrides any html attributes.  Best to use css to resize
+images.
+
+
 ## 9/3/2017
 - float properties on inline elements are a bad idea, since float removes the element
 from the normal flow and changes it back to block.
@@ -11,6 +23,12 @@ Absolute positioning is relative to the nearest relatively positioned element, o
 -Typeface weights (bold/normal/100-900) require the text to support it.
 -Set height and line-height to the same value to vertically center text.
 -In font the slash is for (font size)/(line height)
+-Inherit is a property for some font properties like text-decoration because they do *not* inherit.
+-box-shadow is useful for shadowing display elements, text-shadow is useful for text.
+-You can turn underlines off from links with text-decoration:none
+-Some web-safe fonts are in every browser.  Use google.
+-q, blockquote, and cite are useful for authoring citations.
+-cursor can be used to change the pointer
 
 ## 9/2/2017 - What I learned on my 25th Birthday
 - CSS properties have different priorities (cascades):  For example properties that come later override properties that come earlier.
