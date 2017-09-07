@@ -1,3 +1,6 @@
+## 9/5/2017
+-figure and figcaption can be used to surround an image with a caption.
+
 ## 9/4/2017
 - Gradients can have keywords to point to a corner or direction as the first argument,
 such as 'to top'.
