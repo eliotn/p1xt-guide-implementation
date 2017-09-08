@@ -13,6 +13,7 @@
         </div>
         <form action="login" method="post">
             <fieldset>
+                <legend>Date and Time</legend>
             <label for="date">Birthday?</label>
             <input type="date" name="birthday">
             <label for="time">Time?</label>
@@ -20,10 +21,10 @@
             </fieldset>
             <fieldset>
             <label for="email">Email?</label>
-            <input type="email" name="email-address">
-            <input type="url" name="website">
-            <input type="number" name="cost">
-            <input type="tel" name="phone-number">
+            <input type="email" name="email-address" disabled>
+            <input type="url" name="website" required>
+            <input type="number" name="cost" required>
+            <input type="tel" name="phone-number" required>
             </fieldset>
             <label>
             <input type="radio" name="day" value="Friday" checked>Friday
@@ -42,7 +43,7 @@
                 <option value="10">Its10</option>
             </select>
             <br>
-            <textarea name="comment">Add your comment here</textarea>
+            <textarea name="comment" placeholder="Add your comment here" required></textarea>
             <button name="submit">
                 <strong>Send Us</strong> a message
             </button>

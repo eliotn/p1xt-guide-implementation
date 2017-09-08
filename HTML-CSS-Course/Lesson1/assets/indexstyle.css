@@ -13,3 +13,12 @@ h1 {
 .bluetext {
     color: blue;
 }
+fieldset {
+    border: 1px solid #cecfd5;
+    border-radius: 6px;
+    padding: 24px 60px;
+}
+
+input:required {
+    border: 5px solid red;
+}
