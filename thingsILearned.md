@@ -1,6 +1,7 @@
 ## 9/7/2017
 -You can use css overlays and absolute positioning to overwrite text.  Fantastic.
 
+
 ## 9/6/2017
 -Legend is useful for putting text on top of field elements.
 -You can do border-radius on text input for a cool effect.
