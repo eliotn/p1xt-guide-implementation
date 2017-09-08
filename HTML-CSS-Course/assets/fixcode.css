@@ -1,8 +1,79 @@
 .alert {
-    
+    color: red;
+    font-size: 24px;
 }
 
 .alert-success {
     color: #393;
     font-size: 24px;
+}
+/* Primary header */
+header {
+    color: red;
+}
+
+/* Featured article */
+article {
+    color: white;
+}
+
+/* Buttons */
+.btn {
+    color: blue;
+}
+
+a,
+.btn {
+    background:#aaa;
+    color:#f60;
+    font-size:18px;
+    padding:6px;
+}
+
+/* Bad Code */
+/* .Red_Box { ... } */
+
+.alert-message {
+    font-size: 24px;
+}
+
+.news a {
+    color: blue;
+}
+
+.news .special {
+    color: brown;
+}
+
+.text-offset {
+    text-indent: 10px;
+}
+
+img {
+    margin: 5px 10px;
+}
+button {
+    padding-left: 20px;
+}
+.module {
+    background: #ddd;
+    color: #f60;
+}
+
+div {
+    background: -webkit-linear-gradient(#a1d3b0, #f6f1d3);
+    background:    -moz-linear-gradient(#a1d3b0, #f6f1d3);
+    background:         linear-gradient(#a1d3b0, #f6f1d3);
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 20px 0;
+    letter-spacing: 0;
+    padding: 0 5px;
+}
+
+.feat-box {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
