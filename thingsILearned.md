@@ -1,3 +1,10 @@
+## 9/9/2017
+-Font resizing seems to have some different behavior in different browsers.
+
+## 9/8/2017
+-When you are positioning elements, positioning things within an element is better
+than positioning things completely absolutely.
+
 ## 9/7/2017
 -You can use css overlays and absolute positioning to overwrite text.  Fantastic.
 
