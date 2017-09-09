@@ -1,37 +1,152 @@
-
-/*gold css positions*/
-#gold1 {
-    top: 260px;
-    left: 360px;
-}
-
-#gold2 {
-    top: 320px;
-    left: 528px;
-}
-
-
-/*gold overlay tile*/
-.gold {
-    width: 12px;
-    height: 20px;
-    background: #000;
-    color: yellow;
-    position: absolute;
-}
-
-/*base map*/
-ul.rogue-map {
-    position: absolute;
-    top: 200px;
-    left: 300px;
-}
-
+/*
+ =====================================
+ Base Grid style - uses monospace fonts and 1 by 1.666 vw characters
+ =====================================
+*/
+ 
 body {
     background: black;
     color: white;
     font-family: "Roboto Mono", Courier;
     list-style-type: none;
-    line-height: 20px;
-    font-size: 20px;
+    line-height: 1vw;
+    font-size: 1vw;
+    
 }
+
+/*
+ =====================================
+ Overlay Symbol Type
+ =====================================
+*/
+
+.gold {
+    color: yellow;
+}
+
+.stairs {
+    color: red;
+}
+
+.rogue {
+    color: blue;
+}
+
+/*
+ =====================================
+ Tile / Overlay Positions
+ =====================================
+*/
+
+.tile {
+    background: black;
+    height: 1vw;
+    position: absolute;
+    width: 1vw;
+}
+
+#gold1 {
+    top: 5vw;
+    left: 5vw;
+}
+
+#gold2 {
+    top: 10vw;
+    left: 19vw;
+}
+
+#gold3 {
+    top: 4vw;
+    left: 12vw;
+}
+
+#gold4 {
+    top: 2vw;
+    left: 3vw;
+}
+
+#gold5 {
+    top: 4vw;
+    left: 6vw;
+}
+
+#gold6 {
+    top: 5vw;
+    left: 20vw;
+}
+
+#gold7 {
+    top: 1vw;
+    left: 24vw;
+}
+
+
+#stairs1 {
+    top: 5vw;
+    left: 10vw;
+}
+
+#stairs2 {
+    top: 5vw;
+    left: 22vw;
+}
+
+
+
+
+
+
+/*
+ =====================================
+ Component classes
+ =====================================
+*/
+
+/*base map*/
+
+ul {
+    position: absolute;
+    
+}
+
+.rogue-map {
+    left: 5vw;
+    top: 5vw;
+}
+
+ul.room1 {
+    
+    left: 10vw;
+    top: 10vw;
+}
+
+ul.room2 {
+    
+    left: 50vw;
+    top: 5vw;
+}
+
+ul.passage1 {
+    left:36vw;
+    top:10vw;
+}
+
+/*Status bar*/
+ul.status-bar {
+    left: 0;
+    top: 20vw;
+    
+}
+
+ul.title-bar {
+    margin-left: 45vw;
+    
+    margin-top: 0;
+}
+
+ul.message-bar {
+    margin-left: 29vw;
+    margin-top: 2vw;
+}
+
+
