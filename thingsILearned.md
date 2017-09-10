@@ -1,27 +1,28 @@
 ## 9/9/2017
--Font resizing seems to have some different behavior in different browsers.
+- Font resizing seems to have some different behavior in different browsers.
+- *Big lesson from roguelike ui.  Don't rely on line height to properly format text. Use svg.*
 
 ## 9/8/2017
--When you are positioning elements, positioning things within an element is better
+- When you are positioning elements, positioning things within an element is better
 than positioning things completely absolutely.
 
 ## 9/7/2017
--You can use css overlays and absolute positioning to overwrite text.  Fantastic.
+- You can use css overlays and absolute positioning to overwrite text.  Fantastic.
 
 
 ## 9/6/2017
--Legend is useful for putting text on top of field elements.
--You can do border-radius on text input for a cool effect.
--I tried self-closing textarea, didn't work.
--Table header cells can relate to their row/column with the scope attribute.
--Tables can be organized with thead tbody and tfooter.
--Tables have border-collapse: seperate or collapse, this affects whether there is spacing between cells in the table.  Also, seperate with no border spacing
+- Legend is useful for putting text on top of field elements.
+- You can do border-radius on text input for a cool effect.
+- I tried self-closing textarea, didn't work.
+- Table header cells can relate to their row/column with the scope attribute.
+- Tables can be organized with thead tbody and tfooter.
+- Tables have border-collapse: seperate or collapse, this affects whether there is spacing between cells in the table.  Also, seperate with no border spacing
 better aligns the header with the body.
--Vertical align can only be used with inline or table cells.
+- Vertical align can only be used with inline or table cells.
 
 
 ## 9/5/2017
--figure and figcaption can be used to surround an image with a caption.
+- figure and figcaption can be used to surround an image with a caption.
 
 ## 9/4/2017
 - Gradients can have keywords to point to a corner or direction as the first argument,
