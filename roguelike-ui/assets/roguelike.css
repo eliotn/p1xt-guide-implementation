@@ -7,10 +7,11 @@
 body {
     background: black;
     color: white;
+    fill: white;
     font-family: "Roboto Mono", Courier;
     list-style-type: none;
-    line-height: 1vw;
-    font-size: 1vw;
+    line-height: 20px;
+    font-size: 20px;
     
 }
 
@@ -22,6 +23,8 @@ body {
 
 .gold {
     color: yellow;
+    fill: yellow;
+    
 }
 
 .stairs {
@@ -148,9 +151,15 @@ ul.title-bar {
     top: 0;
 }
 
+
 ul.message-bar {
     left: 29vw;
     top: 2vw;
 }
 
 
+svg {
+    width:100%;
+    height: auto;
+    font-size: 20px;
+}

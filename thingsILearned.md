@@ -1,3 +1,6 @@
+## 9/10/2017
+- Line height is more complex.  Read https://stackoverflow.com/questions/41336177/font-size-vs-line-height-vs-actual-height
+
 ## 9/9/2017
 - Font resizing seems to have some different behavior in different browsers.
 - *Big lesson from roguelike ui.  Don't rely on line height to properly format text. Use svg.*
