@@ -10,9 +10,9 @@ body {
     fill: white;
     font-family: "Roboto Mono", Courier;
     list-style-type: none;
-    line-height: 20px;
+    line-height: 30px;
     font-size: 20px;
-    
+    vertical-align: center;
 }
 
 /*
@@ -29,10 +29,12 @@ body {
 
 .stairs {
     color: red;
+    fill: red;
 }
 
 .rogue {
     color: blue;
+    fill: blue;
 }
 
 /*
@@ -162,4 +164,8 @@ svg {
     width:100%;
     height: auto;
     font-size: 20px;
+}
+
+.text {
+    display: inline;
 }

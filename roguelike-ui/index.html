@@ -8,12 +8,60 @@
         <link rel="stylesheet" href="./assets/roguelike.css">
     </head>
     <body>
-        <article>
-            <ul class="title-bar">
-                <li>CSSRL</li>
-            </ul>
-        </article>
-        <article>
+        <svg width="1200" height="800" viewbox="0 0 1200 800">
+            <!-- thanks https://stackoverflow.com/questions/15500894/background-color-of-text-in-svg
+            for a post on how to do a background filter -->
+            <defs>
+            <filter x="0" y="0" width="1" height="1" id="back">
+              <feflood flood-color="black"/>
+              <fecomposite in="SourceGraphic"/>
+            </filter>
+          </defs>
+            <!-- SVG content drawn onto the SVG canvas -->
+            <text x="100" y="20">
+                CSSRL
+            </text>
+            <!-- Thanks https://www.safaribooksonline.com/library/view/svg-text-layout/9781491933817/ch04.html for
+            tspan demo -->
+            
+            <text x="60" y="240">
+                <tspan x="60" dy="30">--------------------------</tspan>
+                <tspan x="60" dy="30">|..@.....................+</tspan>
+                <tspan x="60" dy="30">|........................|</tspan>
+                <tspan x="60" dy="30">|........................|</tspan>
+                <tspan x="60" dy="30">|........................|</tspan>
+                <tspan x="60" dy="30">|........................|</tspan>
+                <tspan x="60" dy="30">|........................|</tspan>
+                <tspan x="60" dy="30">--------------------------</tspan>
+            </text>
+            <text filter="url(#back)" class="gold" x="96" y="300">$</text>
+            <text filter="url(#back)" class="gold" x="120" y="330">$</text>
+            <text filter="url(#back)" class="gold" x="144" y="360">$</text>
+            <text filter="url(#back)" class="gold" x="108" y="390">$</text>
+            <text filter="url(#back)" class="stairs" x="216" y="390">&#062;</text>
+                <!--<tspan filter="url(#back)" class="gold" x="120" y="160">$</tspan>
+                <tspan filter="url(#back)" class="gold" x="144" y="140">$</tspan>
+                <tspan filter="url(#back)" class="gold" x="108" y="100">$</tspan>-->
+            
+            <text x="804" y="150">
+                <tspan x="804" dy="30">--------------------------</tspan>
+                <tspan x="804" dy="30">|........................|</tspan>
+                <tspan x="804" dy="30">|........................|</tspan>
+                <tspan x="804" dy="30">|........................|</tspan>
+                <tspan x="804" dy="30">|........................|</tspan>
+                <tspan x="804" dy="30">|........................|</tspan>
+                <tspan x="804" dy="30">+........................|</tspan>
+                <tspan x="804" dy="30">--------------------------</tspan>        
+            </text>
+            <text x="372" y="240">
+                <tspan x="372" dy="30">------------------</tspan>
+                <tspan x="372" dy="30">.................|</tspan>
+                <tspan x="372" dy="30">----------------.-------------------</tspan>
+                <tspan x="552" dy="30">               |....................</tspan>
+                <tspan x="552" dy="30">               ---------------------</tspan>
+            </text>
+        </svg>
+        <!-- <article>
             <ul class="message-bar">
                 <li>It is a full moon in CSS Land.</li>
             </ul>
@@ -88,6 +136,6 @@
                 <li>Eliotn Level 6 Wizard &#036;3141 100/100 HP 50 (70) MP Left Hand: Toy Sword Right Hand: Toy Shield</li>
             </ul>
             
-        </article>
+        </article>-->
     </body>
 </html>
