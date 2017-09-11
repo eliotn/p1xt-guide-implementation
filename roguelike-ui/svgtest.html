@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!-- a quick roguelike mockup with html and css -->
+<html>
+    <head>
+        <title>Roguelike Mockup</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/reset.css">
+        <link rel="stylesheet" href="./assets/roguelike.css">
+    </head>
+    <body>
+        <svg width="1200" height="800" viewbox="0 0 1200 800">
+            <!-- thanks https://stackoverflow.com/questions/15500894/background-color-of-text-in-svg
+            for a post on how to do a background filter -->
+            <defs>
+            <filter x="0" y="0" width="1" height="1" id="back">
+              <feFlood flood-color="black"/>
+              <feComposite in="SourceGraphic"/>
+            </filter>
+          </defs>
+            <!-- SVG content drawn onto the SVG canvas -->
+            <text x="100" y="20">
+                CSSRL
+            </text>
+            <!-- Thanks https://www.safaribooksonline.com/library/view/svg-text-layout/9781491933817/ch04.html for
+            tspan demo -->
+            
+            <text x="60" y="60">
+                <tspan x="60" dy="26.66">--------------------------</tspan>
+                <tspan x="60" dy="26.66">|........................+</tspan>
+                <tspan x="60" dy="26.66">|........................|</tspan>
+                <tspan x="60" dy="26.66">|........................|</tspan>
+                <tspan x="60" dy="26.66">|............@...........|</tspan>
+                <tspan x="60" dy="26.66">|........................|</tspan>
+                <tspan x="60" dy="26.66">|........................|</tspan>
+                <tspan x="60" dy="26.66">--------------------------</tspan>
+            </text>
+            <text filter="url(#back)" class="gold" x="96" y="100">$</text>
+            <text filter="url(#back)" class="gold" x="120" y="160">$</text>
+            <text filter="url(#back)" class="gold" x="144" y="140">$</text>
+            <text filter="url(#back)" class="gold" x="108" y="100">$</text>
+                <tspan  class="gold">$</tspan>
+                <!--<tspan filter="url(#back)" class="gold" x="120" y="160">$</tspan>
+                <tspan filter="url(#back)" class="gold" x="144" y="140">$</tspan>
+                <tspan filter="url(#back)" class="gold" x="108" y="100">$</tspan>-->
+            </text>
+        </svg>
+        <!-- <article>
+            <ul class="message-bar">
+                <li>It is a full moon in CSS Land.</li>
+            </ul>
+        </article>
+        <article>
+            <section class="rogue-map">
+            <ul class="room1">
+                <li>--------------------------</li>
+                <li>|........................+</li>
+                <li>|........................|</li>
+                <li>|........................|</li>
+                <li>|............@...........|</li>
+                <li>|........................|</li>
+                <li>|........................|</li>
+                <li>--------------------------</li>
+                <li class="gold"> 
+                    <p class="tile" id="gold1">
+                    $
+                    </p>
+                    <p class="tile" id="gold2">
+                    $
+                    </p>
+                    <p class="tile" id="gold3">
+                    $
+                    </p>
+                </li>
+                <li class="stairs"> 
+                    <p class="tile" id="stairs1">
+                    &#062;
+                    </p>
+                    <p class="tile" id="stairs2">
+                    &#060;
+                    </p>
+                </li>
+            </ul>
+            <ul class="room2">
+                <li>--------------------------</li>
+                <li>|........................|</li>
+                <li>|........................|</li>
+                <li>|........................|</li>
+                <li>|........................|</li>
+                <li>|........................|</li>
+                <li>+........................|</li>
+                <li>--------------------------</li>
+                <li class="gold">
+                    <p class="tile" id="gold4">
+                    $
+                    </p>
+                    <p class="tile" id="gold5">
+                    $
+                    </p>
+                    <p class="tile" id="gold6">
+                    $
+                    </p>
+                    <p class="tile" id="gold7">
+                    $
+                    </p>
+                </li>
+            </ul>
+            <ul class="passage1">
+                <li>--------------</li>
+                <li>..............</li>
+                <li>--------------</li>
+                
+            </ul>
+            </section>
+            
+            
+        </article>
+        <article>
+            <ul class="status-bar">
+                <li>Eliotn Level 6 Wizard &#036;3141 100/100 HP 50 (70) MP Left Hand: Toy Sword Right Hand: Toy Shield</li>
+            </ul>
+            
+        </article>-->
+    </body>
+</html>
