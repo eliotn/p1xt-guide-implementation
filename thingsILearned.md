@@ -1,3 +1,6 @@
+## 9/12/2017
+- I don't know how to style the extending background yet keep proper margines to fit a container.  This actually seems complex.
+
 ## 9/10/2017
 - Line height is more complex.  Read https://stackoverflow.com/questions/41336177/font-size-vs-line-height-vs-actual-height
 
