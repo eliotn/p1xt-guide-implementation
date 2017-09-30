@@ -1,5 +1,6 @@
 ## 9/29/2017
 - Background repeat needs to be no-repeat.
+- Margins can intersect with each other, they just specify minimum distance from other elements at the same level.
 
 ## 9/16/2017
 - Flexbox is useful for keeping the correct margins while requesting 1/3 or 2/3 of the text container
